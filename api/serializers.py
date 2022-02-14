@@ -100,17 +100,17 @@ class TitleSerializer(serializers.ModelSerializer):
 
 class TitleCreateSerializer(TitleSerializer):
 
-    # category = serializers.SlugRelatedField(
-    #     slug_field='slug',
-    #     queryset=Category.objects.all(),
-    #     required=True
-    # )
-    # genre = serializers.SlugRelatedField(
-    #     slug_field='slug',
-    #     queryset=Genre.objects.all(),
-    #     many=True,
-    #     required=True
-    # )
+    category = serializers.SlugRelatedField(
+        slug_field='slug',
+        queryset=Category.objects.all(),
+        required=True
+    )
+    genre = serializers.SlugRelatedField(
+        slug_field='slug',
+        queryset=Genre.objects.all(),
+        many=True,
+        required=True
+    )
     year = serializers.IntegerField(
         max_value=datetime.now().year,
         min_value=0,
